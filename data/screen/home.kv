@@ -1,0 +1,48 @@
+
+
+SdScreen:
+    id: sc
+    name: 'Home'
+
+    Label:
+        size_hint_y: None
+        height: sc.height / 10
+        font_size: '12'
+        bold: 3
+        disabled: True
+
+    Label:
+        font_size: sc.height / 16
+        text: '[color=3333ff][sub][i]Baby learning [/i][/sub][/color][color=ff3333][b]Sudoku[/b][/color]'
+        markup: True
+        padding: 0,150
+
+    Label:
+        size_hint_y: None
+        height: sc.height / 10
+        disabled: True
+
+    Button:
+        id: btn1
+        size_hint_y: None
+        height: '48dp'
+        text: "6 Square Grid"
+        on_release: app.go_screen(1)
+
+    Button:
+        id: btn2
+        size_hint_y: None
+        height: '48dp'
+        text: "9 Square Grid"
+        on_release: app.go_screen(2)
+    Label:
+        size_hint_y: None
+        height: sc.height / 20
+        font_size: '12'
+        disabled: True
+    Label:
+        font_size: sc.height / 60
+        size_hint_y: None
+        halign: "center"
+        text: 'Created for my lovely kids - Charlie & Yina.\nTerence Jiang       June 4 2019'
+        disabled: True

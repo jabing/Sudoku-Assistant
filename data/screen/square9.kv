@@ -1,0 +1,1255 @@
+
+SdScreen:
+    id: sc
+    name: 'Square9'
+    fullscreen: True
+    font_size: sc.height * 0.08 if sc.height < sc.width else sc.width * 0.08
+    spacing: 0
+    padding: 0
+
+    BoxLayout:
+        size_hint_y: None
+        orientation: "vertical"
+        height: sc.height * 0.1 if sc.height < sc.width else sc.width * 0.3
+        Label:
+            text: ''
+            size_hint_y: 0.2
+        Label:                              # Top
+            text: '[color=FF3333][b][i]9 [/i][/b][/color][color=3333ff][sub]Square Grid[/sub][/color]'
+            font_size: sc.height / 10
+            markup: True
+            size_hint_y: 0.5
+        Label:
+            text: ''
+            size_hint_y: 0.1
+        Label:
+            size_hint_y: 0.2
+            text: app.msg9
+            markup: True
+
+    BoxLayout:
+        id: wnd
+        size_hint_y: None
+        height: sc.height * 0.5-(sc.height * 0.5)%9 if sc.height < sc.width else sc.width * 0.9 - (sc.width * 0.9)%9
+
+        Label:
+            text: ""                    # Left
+            size_hint_y: None
+            height: wnd.height
+
+        GridLayout:
+            id: sg
+            size_hint: None, None
+            height: wnd.height
+            width: wnd.height
+            cols: 9
+            spacing: 1
+            padding: 1
+
+            canvas.after:
+                Color:
+                    rgba: 0, 1, 1, 1
+                #  Outer frame  ----------------------------------------------------------------
+                Line:
+                    points: sg.pos[0],sg.pos[1], sg.pos[0],sg.pos[1]+sg.height, sg.pos[0] + sg.width,sg.pos[1]+sg.height, sg.pos[0] + sg.width,sg.pos[1], sg.pos[0],sg.pos[1]
+                    close: True
+                #  Horizontal line  ----------------------------------------------------------------
+                Line:
+                    points: sg.pos[0], sg.pos[1]+sg.height/3,  sg.pos[0]+sg.width, sg.pos[1]+sg.height/3
+                Line:
+                    points: sg.pos[0],sg.pos[1]+sg.height/3*2 , sg.pos[0]+sg.width,sg.pos[1]+sg.height/3*2
+                #  Vertical line  ----------------------------------------------------------------
+                Line:
+                    points: sg.pos[0]+sg.width/3, sg.pos[1],     sg.pos[0]+sg.width/3, sg.pos[1]+sg.height
+                Line:
+                    points: sg.pos[0]+sg.width/3*2, sg.pos[1],   sg.pos[0]+sg.width/3*2, sg.pos[1]+sg.height
+
+            ToggleButton:
+                idx: 0
+                text: "" if app.board9[self.idx] == 0 else str(app.board9[self.idx])
+                group: 'g1'
+                font_size: sc.font_size
+                color: app.font_color9[self.idx]
+                canvas.after:
+                    Color:
+                        rgba: app.fg_color9[self.idx]
+                    Rectangle:
+                        pos: self.pos
+                        size: self.size
+                on_release: app.click_cell_9(self.idx if self.state=="down" else -1)
+            ToggleButton:
+                idx: 1
+                text: "" if app.board9[self.idx] == 0 else str(app.board9[self.idx])
+                group: 'g1'
+                font_size: sc.font_size
+                color: app.font_color9[self.idx]
+                canvas.after:
+                    Color:
+                        rgba: app.fg_color9[self.idx]
+                    Rectangle:
+                        pos: self.pos
+                        size: self.size
+                on_release: app.click_cell_9(self.idx if self.state=="down" else -1)
+            ToggleButton:
+                idx: 2
+                text: "" if app.board9[self.idx] == 0 else str(app.board9[self.idx])
+                group: 'g1'
+                font_size: sc.font_size
+                color: app.font_color9[self.idx]
+                canvas.after:
+                    Color:
+                        rgba: app.fg_color9[self.idx]
+                    Rectangle:
+                        pos: self.pos
+                        size: self.size
+                on_release: app.click_cell_9(self.idx if self.state=="down" else -1)
+            ToggleButton:
+                idx: 3
+                text: "" if app.board9[self.idx] == 0 else str(app.board9[self.idx])
+                group: 'g1'
+                font_size: sc.font_size
+                color: app.font_color9[self.idx]
+                canvas.after:
+                    Color:
+                        rgba: app.fg_color9[self.idx]
+                    Rectangle:
+                        pos: self.pos
+                        size: self.size
+                on_release: app.click_cell_9(self.idx if self.state=="down" else -1)
+            ToggleButton:
+                idx: 4
+                text: "" if app.board9[self.idx] == 0 else str(app.board9[self.idx])
+                group: 'g1'
+                font_size: sc.font_size
+                color: app.font_color9[self.idx]
+                canvas.after:
+                    Color:
+                        rgba: app.fg_color9[self.idx]
+                    Rectangle:
+                        pos: self.pos
+                        size: self.size
+                on_release: app.click_cell_9(self.idx if self.state=="down" else -1)
+            ToggleButton:
+                idx: 5
+                text: "" if app.board9[self.idx] == 0 else str(app.board9[self.idx])
+                group: 'g1'
+                font_size: sc.font_size
+                color: app.font_color9[self.idx]
+                canvas.after:
+                    Color:
+                        rgba: app.fg_color9[self.idx]
+                    Rectangle:
+                        pos: self.pos
+                        size: self.size
+                on_release: app.click_cell_9(self.idx if self.state=="down" else -1)
+            ToggleButton:
+                idx: 6
+                text: "" if app.board9[self.idx] == 0 else str(app.board9[self.idx])
+                group: 'g1'
+                font_size: sc.font_size
+                color: app.font_color9[self.idx]
+                canvas.after:
+                    Color:
+                        rgba: app.fg_color9[self.idx]
+                    Rectangle:
+                        pos: self.pos
+                        size: self.size
+                on_release: app.click_cell_9(self.idx if self.state=="down" else -1)
+            ToggleButton:
+                idx: 7
+                text: "" if app.board9[self.idx] == 0 else str(app.board9[self.idx])
+                group: 'g1'
+                font_size: sc.font_size
+                color: app.font_color9[self.idx]
+                canvas.after:
+                    Color:
+                        rgba: app.fg_color9[self.idx]
+                    Rectangle:
+                        pos: self.pos
+                        size: self.size
+                on_release: app.click_cell_9(self.idx if self.state=="down" else -1)
+            ToggleButton:
+                idx: 8
+                text: "" if app.board9[self.idx] == 0 else str(app.board9[self.idx])
+                group: 'g1'
+                font_size: sc.font_size
+                color: app.font_color9[self.idx]
+                canvas.after:
+                    Color:
+                        rgba: app.fg_color9[self.idx]
+                    Rectangle:
+                        pos: self.pos
+                        size: self.size
+                on_release: app.click_cell_9(self.idx if self.state=="down" else -1)
+            ToggleButton:
+                idx: 9
+                text: "" if app.board9[self.idx] == 0 else str(app.board9[self.idx])
+                group: 'g1'
+                font_size: sc.font_size
+                color: app.font_color9[self.idx]
+                canvas.after:
+                    Color:
+                        rgba: app.fg_color9[self.idx]
+                    Rectangle:
+                        pos: self.pos
+                        size: self.size
+                on_release: app.click_cell_9(self.idx if self.state=="down" else -1)
+            ToggleButton:
+                idx: 10
+                text: "" if app.board9[self.idx] == 0 else str(app.board9[self.idx])
+                group: 'g1'
+                font_size: sc.font_size
+                color: app.font_color9[self.idx]
+                canvas.after:
+                    Color:
+                        rgba: app.fg_color9[self.idx]
+                    Rectangle:
+                        pos: self.pos
+                        size: self.size
+                on_release: app.click_cell_9(self.idx if self.state=="down" else -1)
+            ToggleButton:
+                idx: 11
+                text: "" if app.board9[self.idx] == 0 else str(app.board9[self.idx])
+                group: 'g1'
+                font_size: sc.font_size
+                color: app.font_color9[self.idx]
+                canvas.after:
+                    Color:
+                        rgba: app.fg_color9[self.idx]
+                    Rectangle:
+                        pos: self.pos
+                        size: self.size
+                on_release: app.click_cell_9(self.idx if self.state=="down" else -1)
+            ToggleButton:
+                idx: 12
+                text: "" if app.board9[self.idx] == 0 else str(app.board9[self.idx])
+                group: 'g1'
+                font_size: sc.font_size
+                color: app.font_color9[self.idx]
+                canvas.after:
+                    Color:
+                        rgba: app.fg_color9[self.idx]
+                    Rectangle:
+                        pos: self.pos
+                        size: self.size
+                on_release: app.click_cell_9(self.idx if self.state=="down" else -1)
+            ToggleButton:
+                idx: 13
+                text: "" if app.board9[self.idx] == 0 else str(app.board9[self.idx])
+                group: 'g1'
+                font_size: sc.font_size
+                color: app.font_color9[self.idx]
+                canvas.after:
+                    Color:
+                        rgba: app.fg_color9[self.idx]
+                    Rectangle:
+                        pos: self.pos
+                        size: self.size
+                on_release: app.click_cell_9(self.idx if self.state=="down" else -1)
+            ToggleButton:
+                idx: 14
+                text: "" if app.board9[self.idx] == 0 else str(app.board9[self.idx])
+                group: 'g1'
+                font_size: sc.font_size
+                color: app.font_color9[self.idx]
+                canvas.after:
+                    Color:
+                        rgba: app.fg_color9[self.idx]
+                    Rectangle:
+                        pos: self.pos
+                        size: self.size
+                on_release: app.click_cell_9(self.idx if self.state=="down" else -1)
+            ToggleButton:
+                idx: 15
+                text: "" if app.board9[self.idx] == 0 else str(app.board9[self.idx])
+                group: 'g1'
+                font_size: sc.font_size
+                color: app.font_color9[self.idx]
+                canvas.after:
+                    Color:
+                        rgba: app.fg_color9[self.idx]
+                    Rectangle:
+                        pos: self.pos
+                        size: self.size
+                on_release: app.click_cell_9(self.idx if self.state=="down" else -1)
+            ToggleButton:
+                idx: 16
+                text: "" if app.board9[self.idx] == 0 else str(app.board9[self.idx])
+                group: 'g1'
+                font_size: sc.font_size
+                color: app.font_color9[self.idx]
+                canvas.after:
+                    Color:
+                        rgba: app.fg_color9[self.idx]
+                    Rectangle:
+                        pos: self.pos
+                        size: self.size
+                on_release: app.click_cell_9(self.idx if self.state=="down" else -1)
+            ToggleButton:
+                idx: 17
+                text: "" if app.board9[self.idx] == 0 else str(app.board9[self.idx])
+                group: 'g1'
+                font_size: sc.font_size
+                color: app.font_color9[self.idx]
+                canvas.after:
+                    Color:
+                        rgba: app.fg_color9[self.idx]
+                    Rectangle:
+                        pos: self.pos
+                        size: self.size
+                on_release: app.click_cell_9(self.idx if self.state=="down" else -1)
+            ToggleButton:
+                idx: 18
+                text: "" if app.board9[self.idx] == 0 else str(app.board9[self.idx])
+                group: 'g1'
+                font_size: sc.font_size
+                color: app.font_color9[self.idx]
+                canvas.after:
+                    Color:
+                        rgba: app.fg_color9[self.idx]
+                    Rectangle:
+                        pos: self.pos
+                        size: self.size
+                on_release: app.click_cell_9(self.idx if self.state=="down" else -1)
+            ToggleButton:
+                idx: 19
+                text: "" if app.board9[self.idx] == 0 else str(app.board9[self.idx])
+                group: 'g1'
+                font_size: sc.font_size
+                color: app.font_color9[self.idx]
+                canvas.after:
+                    Color:
+                        rgba: app.fg_color9[self.idx]
+                    Rectangle:
+                        pos: self.pos
+                        size: self.size
+                on_release: app.click_cell_9(self.idx if self.state=="down" else -1)
+            ToggleButton:
+                idx: 20
+                text: "" if app.board9[self.idx] == 0 else str(app.board9[self.idx])
+                group: 'g1'
+                font_size: sc.font_size
+                color: app.font_color9[self.idx]
+                canvas.after:
+                    Color:
+                        rgba: app.fg_color9[self.idx]
+                    Rectangle:
+                        pos: self.pos
+                        size: self.size
+                on_release: app.click_cell_9(self.idx if self.state=="down" else -1)
+            ToggleButton:
+                idx: 21
+                text: "" if app.board9[self.idx] == 0 else str(app.board9[self.idx])
+                group: 'g1'
+                font_size: sc.font_size
+                color: app.font_color9[self.idx]
+                canvas.after:
+                    Color:
+                        rgba: app.fg_color9[self.idx]
+                    Rectangle:
+                        pos: self.pos
+                        size: self.size
+                on_release: app.click_cell_9(self.idx if self.state=="down" else -1)
+            ToggleButton:
+                idx: 22
+                text: "" if app.board9[self.idx] == 0 else str(app.board9[self.idx])
+                group: 'g1'
+                font_size: sc.font_size
+                color: app.font_color9[self.idx]
+                canvas.after:
+                    Color:
+                        rgba: app.fg_color9[self.idx]
+                    Rectangle:
+                        pos: self.pos
+                        size: self.size
+                on_release: app.click_cell_9(self.idx if self.state=="down" else -1)
+            ToggleButton:
+                idx: 23
+                text: "" if app.board9[self.idx] == 0 else str(app.board9[self.idx])
+                group: 'g1'
+                font_size: sc.font_size
+                color: app.font_color9[self.idx]
+                canvas.after:
+                    Color:
+                        rgba: app.fg_color9[self.idx]
+                    Rectangle:
+                        pos: self.pos
+                        size: self.size
+                on_release: app.click_cell_9(self.idx if self.state=="down" else -1)
+            ToggleButton:
+                idx: 24
+                text: "" if app.board9[self.idx] == 0 else str(app.board9[self.idx])
+                group: 'g1'
+                font_size: sc.font_size
+                color: app.font_color9[self.idx]
+                canvas.after:
+                    Color:
+                        rgba: app.fg_color9[self.idx]
+                    Rectangle:
+                        pos: self.pos
+                        size: self.size
+                on_release: app.click_cell_9(self.idx if self.state=="down" else -1)
+            ToggleButton:
+                idx: 25
+                text: "" if app.board9[self.idx] == 0 else str(app.board9[self.idx])
+                group: 'g1'
+                font_size: sc.font_size
+                color: app.font_color9[self.idx]
+                canvas.after:
+                    Color:
+                        rgba: app.fg_color9[self.idx]
+                    Rectangle:
+                        pos: self.pos
+                        size: self.size
+                on_release: app.click_cell_9(self.idx if self.state=="down" else -1)
+            ToggleButton:
+                idx: 26
+                text: "" if app.board9[self.idx] == 0 else str(app.board9[self.idx])
+                group: 'g1'
+                font_size: sc.font_size
+                color: app.font_color9[self.idx]
+                canvas.after:
+                    Color:
+                        rgba: app.fg_color9[self.idx]
+                    Rectangle:
+                        pos: self.pos
+                        size: self.size
+                on_release: app.click_cell_9(self.idx if self.state=="down" else -1)
+            ToggleButton:
+                idx: 27
+                text: "" if app.board9[self.idx] == 0 else str(app.board9[self.idx])
+                group: 'g1'
+                font_size: sc.font_size
+                color: app.font_color9[self.idx]
+                canvas.after:
+                    Color:
+                        rgba: app.fg_color9[self.idx]
+                    Rectangle:
+                        pos: self.pos
+                        size: self.size
+                on_release: app.click_cell_9(self.idx if self.state=="down" else -1)
+            ToggleButton:
+                idx: 28
+                text: "" if app.board9[self.idx] == 0 else str(app.board9[self.idx])
+                group: 'g1'
+                font_size: sc.font_size
+                color: app.font_color9[self.idx]
+                canvas.after:
+                    Color:
+                        rgba: app.fg_color9[self.idx]
+                    Rectangle:
+                        pos: self.pos
+                        size: self.size
+                on_release: app.click_cell_9(self.idx if self.state=="down" else -1)
+            ToggleButton:
+                idx: 29
+                text: "" if app.board9[self.idx] == 0 else str(app.board9[self.idx])
+                group: 'g1'
+                font_size: sc.font_size
+                color: app.font_color9[self.idx]
+                canvas.after:
+                    Color:
+                        rgba: app.fg_color9[self.idx]
+                    Rectangle:
+                        pos: self.pos
+                        size: self.size
+                on_release: app.click_cell_9(self.idx if self.state=="down" else -1)
+            ToggleButton:
+                idx: 30
+                text: "" if app.board9[self.idx] == 0 else str(app.board9[self.idx])
+                group: 'g1'
+                font_size: sc.font_size
+                color: app.font_color9[self.idx]
+                canvas.after:
+                    Color:
+                        rgba: app.fg_color9[self.idx]
+                    Rectangle:
+                        pos: self.pos
+                        size: self.size
+                on_release: app.click_cell_9(self.idx if self.state=="down" else -1)
+            ToggleButton:
+                idx: 31
+                text: "" if app.board9[self.idx] == 0 else str(app.board9[self.idx])
+                group: 'g1'
+                font_size: sc.font_size
+                color: app.font_color9[self.idx]
+                canvas.after:
+                    Color:
+                        rgba: app.fg_color9[self.idx]
+                    Rectangle:
+                        pos: self.pos
+                        size: self.size
+                on_release: app.click_cell_9(self.idx if self.state=="down" else -1)
+            ToggleButton:
+                idx: 32
+                text: "" if app.board9[self.idx] == 0 else str(app.board9[self.idx])
+                group: 'g1'
+                font_size: sc.font_size
+                color: app.font_color9[self.idx]
+                canvas.after:
+                    Color:
+                        rgba: app.fg_color9[self.idx]
+                    Rectangle:
+                        pos: self.pos
+                        size: self.size
+                on_release: app.click_cell_9(self.idx if self.state=="down" else -1)
+            ToggleButton:
+                idx: 33
+                text: "" if app.board9[self.idx] == 0 else str(app.board9[self.idx])
+                group: 'g1'
+                font_size: sc.font_size
+                color: app.font_color9[self.idx]
+                canvas.after:
+                    Color:
+                        rgba: app.fg_color9[self.idx]
+                    Rectangle:
+                        pos: self.pos
+                        size: self.size
+                on_release: app.click_cell_9(self.idx if self.state=="down" else -1)
+            ToggleButton:
+                idx: 34
+                text: "" if app.board9[self.idx] == 0 else str(app.board9[self.idx])
+                group: 'g1'
+                font_size: sc.font_size
+                color: app.font_color9[self.idx]
+                canvas.after:
+                    Color:
+                        rgba: app.fg_color9[self.idx]
+                    Rectangle:
+                        pos: self.pos
+                        size: self.size
+                on_release: app.click_cell_9(self.idx if self.state=="down" else -1)
+            ToggleButton:
+                idx: 35
+                text: "" if app.board9[self.idx] == 0 else str(app.board9[self.idx])
+                group: 'g1'
+                font_size: sc.font_size
+                color: app.font_color9[self.idx]
+                canvas.after:
+                    Color:
+                        rgba: app.fg_color9[self.idx]
+                    Rectangle:
+                        pos: self.pos
+                        size: self.size
+                on_release: app.click_cell_9(self.idx if self.state=="down" else -1)
+            ToggleButton:
+                idx: 36
+                text: "" if app.board9[self.idx] == 0 else str(app.board9[self.idx])
+                group: 'g1'
+                font_size: sc.font_size
+                color: app.font_color9[self.idx]
+                canvas.after:
+                    Color:
+                        rgba: app.fg_color9[self.idx]
+                    Rectangle:
+                        pos: self.pos
+                        size: self.size
+                on_release: app.click_cell_9(self.idx if self.state=="down" else -1)
+            ToggleButton:
+                idx: 37
+                text: "" if app.board9[self.idx] == 0 else str(app.board9[self.idx])
+                group: 'g1'
+                font_size: sc.font_size
+                color: app.font_color9[self.idx]
+                canvas.after:
+                    Color:
+                        rgba: app.fg_color9[self.idx]
+                    Rectangle:
+                        pos: self.pos
+                        size: self.size
+                on_release: app.click_cell_9(self.idx if self.state=="down" else -1)
+            ToggleButton:
+                idx: 38
+                text: "" if app.board9[self.idx] == 0 else str(app.board9[self.idx])
+                group: 'g1'
+                font_size: sc.font_size
+                color: app.font_color9[self.idx]
+                canvas.after:
+                    Color:
+                        rgba: app.fg_color9[self.idx]
+                    Rectangle:
+                        pos: self.pos
+                        size: self.size
+                on_release: app.click_cell_9(self.idx if self.state=="down" else -1)
+            ToggleButton:
+                idx: 39
+                text: "" if app.board9[self.idx] == 0 else str(app.board9[self.idx])
+                group: 'g1'
+                font_size: sc.font_size
+                color: app.font_color9[self.idx]
+                canvas.after:
+                    Color:
+                        rgba: app.fg_color9[self.idx]
+                    Rectangle:
+                        pos: self.pos
+                        size: self.size
+                on_release: app.click_cell_9(self.idx if self.state=="down" else -1)
+            ToggleButton:
+                idx: 40
+                text: "" if app.board9[self.idx] == 0 else str(app.board9[self.idx])
+                group: 'g1'
+                font_size: sc.font_size
+                color: app.font_color9[self.idx]
+                canvas.after:
+                    Color:
+                        rgba: app.fg_color9[self.idx]
+                    Rectangle:
+                        pos: self.pos
+                        size: self.size
+                on_release: app.click_cell_9(self.idx if self.state=="down" else -1)
+            ToggleButton:
+                idx: 41
+                text: "" if app.board9[self.idx] == 0 else str(app.board9[self.idx])
+                group: 'g1'
+                font_size: sc.font_size
+                color: app.font_color9[self.idx]
+                canvas.after:
+                    Color:
+                        rgba: app.fg_color9[self.idx]
+                    Rectangle:
+                        pos: self.pos
+                        size: self.size
+                on_release: app.click_cell_9(self.idx if self.state=="down" else -1)
+            ToggleButton:
+                idx: 42
+                text: "" if app.board9[self.idx] == 0 else str(app.board9[self.idx])
+                group: 'g1'
+                font_size: sc.font_size
+                color: app.font_color9[self.idx]
+                canvas.after:
+                    Color:
+                        rgba: app.fg_color9[self.idx]
+                    Rectangle:
+                        pos: self.pos
+                        size: self.size
+                on_release: app.click_cell_9(self.idx if self.state=="down" else -1)
+            ToggleButton:
+                idx: 43
+                text: "" if app.board9[self.idx] == 0 else str(app.board9[self.idx])
+                group: 'g1'
+                font_size: sc.font_size
+                color: app.font_color9[self.idx]
+                canvas.after:
+                    Color:
+                        rgba: app.fg_color9[self.idx]
+                    Rectangle:
+                        pos: self.pos
+                        size: self.size
+                on_release: app.click_cell_9(self.idx if self.state=="down" else -1)
+            ToggleButton:
+                idx: 44
+                text: "" if app.board9[self.idx] == 0 else str(app.board9[self.idx])
+                group: 'g1'
+                font_size: sc.font_size
+                color: app.font_color9[self.idx]
+                canvas.after:
+                    Color:
+                        rgba: app.fg_color9[self.idx]
+                    Rectangle:
+                        pos: self.pos
+                        size: self.size
+                on_release: app.click_cell_9(self.idx if self.state=="down" else -1)
+            ToggleButton:
+                idx: 45
+                text: "" if app.board9[self.idx] == 0 else str(app.board9[self.idx])
+                group: 'g1'
+                font_size: sc.font_size
+                color: app.font_color9[self.idx]
+                canvas.after:
+                    Color:
+                        rgba: app.fg_color9[self.idx]
+                    Rectangle:
+                        pos: self.pos
+                        size: self.size
+                on_release: app.click_cell_9(self.idx if self.state=="down" else -1)
+            ToggleButton:
+                idx: 46
+                text: "" if app.board9[self.idx] == 0 else str(app.board9[self.idx])
+                group: 'g1'
+                font_size: sc.font_size
+                color: app.font_color9[self.idx]
+                canvas.after:
+                    Color:
+                        rgba: app.fg_color9[self.idx]
+                    Rectangle:
+                        pos: self.pos
+                        size: self.size
+                on_release: app.click_cell_9(self.idx if self.state=="down" else -1)
+            ToggleButton:
+                idx: 47
+                text: "" if app.board9[self.idx] == 0 else str(app.board9[self.idx])
+                group: 'g1'
+                font_size: sc.font_size
+                color: app.font_color9[self.idx]
+                canvas.after:
+                    Color:
+                        rgba: app.fg_color9[self.idx]
+                    Rectangle:
+                        pos: self.pos
+                        size: self.size
+                on_release: app.click_cell_9(self.idx if self.state=="down" else -1)
+            ToggleButton:
+                idx: 48
+                text: "" if app.board9[self.idx] == 0 else str(app.board9[self.idx])
+                group: 'g1'
+                font_size: sc.font_size
+                color: app.font_color9[self.idx]
+                canvas.after:
+                    Color:
+                        rgba: app.fg_color9[self.idx]
+                    Rectangle:
+                        pos: self.pos
+                        size: self.size
+                on_release: app.click_cell_9(self.idx if self.state=="down" else -1)
+            ToggleButton:
+                idx: 49
+                text: "" if app.board9[self.idx] == 0 else str(app.board9[self.idx])
+                group: 'g1'
+                font_size: sc.font_size
+                color: app.font_color9[self.idx]
+                canvas.after:
+                    Color:
+                        rgba: app.fg_color9[self.idx]
+                    Rectangle:
+                        pos: self.pos
+                        size: self.size
+                on_release: app.click_cell_9(self.idx if self.state=="down" else -1)
+            ToggleButton:
+                idx: 50
+                text: "" if app.board9[self.idx] == 0 else str(app.board9[self.idx])
+                group: 'g1'
+                font_size: sc.font_size
+                color: app.font_color9[self.idx]
+                canvas.after:
+                    Color:
+                        rgba: app.fg_color9[self.idx]
+                    Rectangle:
+                        pos: self.pos
+                        size: self.size
+                on_release: app.click_cell_9(self.idx if self.state=="down" else -1)
+            ToggleButton:
+                idx: 51
+                text: "" if app.board9[self.idx] == 0 else str(app.board9[self.idx])
+                group: 'g1'
+                font_size: sc.font_size
+                color: app.font_color9[self.idx]
+                canvas.after:
+                    Color:
+                        rgba: app.fg_color9[self.idx]
+                    Rectangle:
+                        pos: self.pos
+                        size: self.size
+                on_release: app.click_cell_9(self.idx if self.state=="down" else -1)
+            ToggleButton:
+                idx: 52
+                text: "" if app.board9[self.idx] == 0 else str(app.board9[self.idx])
+                group: 'g1'
+                font_size: sc.font_size
+                color: app.font_color9[self.idx]
+                canvas.after:
+                    Color:
+                        rgba: app.fg_color9[self.idx]
+                    Rectangle:
+                        pos: self.pos
+                        size: self.size
+                on_release: app.click_cell_9(self.idx if self.state=="down" else -1)
+            ToggleButton:
+                idx: 53
+                text: "" if app.board9[self.idx] == 0 else str(app.board9[self.idx])
+                group: 'g1'
+                font_size: sc.font_size
+                color: app.font_color9[self.idx]
+                canvas.after:
+                    Color:
+                        rgba: app.fg_color9[self.idx]
+                    Rectangle:
+                        pos: self.pos
+                        size: self.size
+                on_release: app.click_cell_9(self.idx if self.state=="down" else -1)
+            ToggleButton:
+                idx: 54
+                text: "" if app.board9[self.idx] == 0 else str(app.board9[self.idx])
+                group: 'g1'
+                font_size: sc.font_size
+                color: app.font_color9[self.idx]
+                canvas.after:
+                    Color:
+                        rgba: app.fg_color9[self.idx]
+                    Rectangle:
+                        pos: self.pos
+                        size: self.size
+                on_release: app.click_cell_9(self.idx if self.state=="down" else -1)
+            ToggleButton:
+                idx: 55
+                text: "" if app.board9[self.idx] == 0 else str(app.board9[self.idx])
+                group: 'g1'
+                font_size: sc.font_size
+                color: app.font_color9[self.idx]
+                canvas.after:
+                    Color:
+                        rgba: app.fg_color9[self.idx]
+                    Rectangle:
+                        pos: self.pos
+                        size: self.size
+                on_release: app.click_cell_9(self.idx if self.state=="down" else -1)
+            ToggleButton:
+                idx: 56
+                text: "" if app.board9[self.idx] == 0 else str(app.board9[self.idx])
+                group: 'g1'
+                font_size: sc.font_size
+                color: app.font_color9[self.idx]
+                canvas.after:
+                    Color:
+                        rgba: app.fg_color9[self.idx]
+                    Rectangle:
+                        pos: self.pos
+                        size: self.size
+                on_release: app.click_cell_9(self.idx if self.state=="down" else -1)
+            ToggleButton:
+                idx: 57
+                text: "" if app.board9[self.idx] == 0 else str(app.board9[self.idx])
+                group: 'g1'
+                font_size: sc.font_size
+                color: app.font_color9[self.idx]
+                canvas.after:
+                    Color:
+                        rgba: app.fg_color9[self.idx]
+                    Rectangle:
+                        pos: self.pos
+                        size: self.size
+                on_release: app.click_cell_9(self.idx if self.state=="down" else -1)
+            ToggleButton:
+                idx: 58
+                text: "" if app.board9[self.idx] == 0 else str(app.board9[self.idx])
+                group: 'g1'
+                font_size: sc.font_size
+                color: app.font_color9[self.idx]
+                canvas.after:
+                    Color:
+                        rgba: app.fg_color9[self.idx]
+                    Rectangle:
+                        pos: self.pos
+                        size: self.size
+                on_release: app.click_cell_9(self.idx if self.state=="down" else -1)
+            ToggleButton:
+                idx: 59
+                text: "" if app.board9[self.idx] == 0 else str(app.board9[self.idx])
+                group: 'g1'
+                font_size: sc.font_size
+                color: app.font_color9[self.idx]
+                canvas.after:
+                    Color:
+                        rgba: app.fg_color9[self.idx]
+                    Rectangle:
+                        pos: self.pos
+                        size: self.size
+                on_release: app.click_cell_9(self.idx if self.state=="down" else -1)
+            ToggleButton:
+                idx: 60
+                text: "" if app.board9[self.idx] == 0 else str(app.board9[self.idx])
+                group: 'g1'
+                font_size: sc.font_size
+                color: app.font_color9[self.idx]
+                canvas.after:
+                    Color:
+                        rgba: app.fg_color9[self.idx]
+                    Rectangle:
+                        pos: self.pos
+                        size: self.size
+                on_release: app.click_cell_9(self.idx if self.state=="down" else -1)
+            ToggleButton:
+                idx: 61
+                text: "" if app.board9[self.idx] == 0 else str(app.board9[self.idx])
+                group: 'g1'
+                font_size: sc.font_size
+                color: app.font_color9[self.idx]
+                canvas.after:
+                    Color:
+                        rgba: app.fg_color9[self.idx]
+                    Rectangle:
+                        pos: self.pos
+                        size: self.size
+                on_release: app.click_cell_9(self.idx if self.state=="down" else -1)
+            ToggleButton:
+                idx: 62
+                text: "" if app.board9[self.idx] == 0 else str(app.board9[self.idx])
+                group: 'g1'
+                font_size: sc.font_size
+                color: app.font_color9[self.idx]
+                canvas.after:
+                    Color:
+                        rgba: app.fg_color9[self.idx]
+                    Rectangle:
+                        pos: self.pos
+                        size: self.size
+                on_release: app.click_cell_9(self.idx if self.state=="down" else -1)
+            ToggleButton:
+                idx: 63
+                text: "" if app.board9[self.idx] == 0 else str(app.board9[self.idx])
+                group: 'g1'
+                font_size: sc.font_size
+                color: app.font_color9[self.idx]
+                canvas.after:
+                    Color:
+                        rgba: app.fg_color9[self.idx]
+                    Rectangle:
+                        pos: self.pos
+                        size: self.size
+                on_release: app.click_cell_9(self.idx if self.state=="down" else -1)
+            ToggleButton:
+                idx: 64
+                text: "" if app.board9[self.idx] == 0 else str(app.board9[self.idx])
+                group: 'g1'
+                font_size: sc.font_size
+                color: app.font_color9[self.idx]
+                canvas.after:
+                    Color:
+                        rgba: app.fg_color9[self.idx]
+                    Rectangle:
+                        pos: self.pos
+                        size: self.size
+                on_release: app.click_cell_9(self.idx if self.state=="down" else -1)
+            ToggleButton:
+                idx: 65
+                text: "" if app.board9[self.idx] == 0 else str(app.board9[self.idx])
+                group: 'g1'
+                font_size: sc.font_size
+                color: app.font_color9[self.idx]
+                canvas.after:
+                    Color:
+                        rgba: app.fg_color9[self.idx]
+                    Rectangle:
+                        pos: self.pos
+                        size: self.size
+                on_release: app.click_cell_9(self.idx if self.state=="down" else -1)
+            ToggleButton:
+                idx: 66
+                text: "" if app.board9[self.idx] == 0 else str(app.board9[self.idx])
+                group: 'g1'
+                font_size: sc.font_size
+                color: app.font_color9[self.idx]
+                canvas.after:
+                    Color:
+                        rgba: app.fg_color9[self.idx]
+                    Rectangle:
+                        pos: self.pos
+                        size: self.size
+                on_release: app.click_cell_9(self.idx if self.state=="down" else -1)
+            ToggleButton:
+                idx: 67
+                text: "" if app.board9[self.idx] == 0 else str(app.board9[self.idx])
+                group: 'g1'
+                font_size: sc.font_size
+                color: app.font_color9[self.idx]
+                canvas.after:
+                    Color:
+                        rgba: app.fg_color9[self.idx]
+                    Rectangle:
+                        pos: self.pos
+                        size: self.size
+                on_release: app.click_cell_9(self.idx if self.state=="down" else -1)
+            ToggleButton:
+                idx: 68
+                text: "" if app.board9[self.idx] == 0 else str(app.board9[self.idx])
+                group: 'g1'
+                font_size: sc.font_size
+                color: app.font_color9[self.idx]
+                canvas.after:
+                    Color:
+                        rgba: app.fg_color9[self.idx]
+                    Rectangle:
+                        pos: self.pos
+                        size: self.size
+                on_release: app.click_cell_9(self.idx if self.state=="down" else -1)
+            ToggleButton:
+                idx: 69
+                text: "" if app.board9[self.idx] == 0 else str(app.board9[self.idx])
+                group: 'g1'
+                font_size: sc.font_size
+                color: app.font_color9[self.idx]
+                canvas.after:
+                    Color:
+                        rgba: app.fg_color9[self.idx]
+                    Rectangle:
+                        pos: self.pos
+                        size: self.size
+                on_release: app.click_cell_9(self.idx if self.state=="down" else -1)
+            ToggleButton:
+                idx: 70
+                text: "" if app.board9[self.idx] == 0 else str(app.board9[self.idx])
+                group: 'g1'
+                font_size: sc.font_size
+                color: app.font_color9[self.idx]
+                canvas.after:
+                    Color:
+                        rgba: app.fg_color9[self.idx]
+                    Rectangle:
+                        pos: self.pos
+                        size: self.size
+                on_release: app.click_cell_9(self.idx if self.state=="down" else -1)
+            ToggleButton:
+                idx: 71
+                text: "" if app.board9[self.idx] == 0 else str(app.board9[self.idx])
+                group: 'g1'
+                font_size: sc.font_size
+                color: app.font_color9[self.idx]
+                canvas.after:
+                    Color:
+                        rgba: app.fg_color9[self.idx]
+                    Rectangle:
+                        pos: self.pos
+                        size: self.size
+                on_release: app.click_cell_9(self.idx if self.state=="down" else -1)
+            ToggleButton:
+                idx: 72
+                text: "" if app.board9[self.idx] == 0 else str(app.board9[self.idx])
+                group: 'g1'
+                font_size: sc.font_size
+                color: app.font_color9[self.idx]
+                canvas.after:
+                    Color:
+                        rgba: app.fg_color9[self.idx]
+                    Rectangle:
+                        pos: self.pos
+                        size: self.size
+                on_release: app.click_cell_9(self.idx if self.state=="down" else -1)
+            ToggleButton:
+                idx: 73
+                text: "" if app.board9[self.idx] == 0 else str(app.board9[self.idx])
+                group: 'g1'
+                font_size: sc.font_size
+                color: app.font_color9[self.idx]
+                canvas.after:
+                    Color:
+                        rgba: app.fg_color9[self.idx]
+                    Rectangle:
+                        pos: self.pos
+                        size: self.size
+                on_release: app.click_cell_9(self.idx if self.state=="down" else -1)
+            ToggleButton:
+                idx: 74
+                text: "" if app.board9[self.idx] == 0 else str(app.board9[self.idx])
+                group: 'g1'
+                font_size: sc.font_size
+                color: app.font_color9[self.idx]
+                canvas.after:
+                    Color:
+                        rgba: app.fg_color9[self.idx]
+                    Rectangle:
+                        pos: self.pos
+                        size: self.size
+                on_release: app.click_cell_9(self.idx if self.state=="down" else -1)
+            ToggleButton:
+                idx: 75
+                text: "" if app.board9[self.idx] == 0 else str(app.board9[self.idx])
+                group: 'g1'
+                font_size: sc.font_size
+                color: app.font_color9[self.idx]
+                canvas.after:
+                    Color:
+                        rgba: app.fg_color9[self.idx]
+                    Rectangle:
+                        pos: self.pos
+                        size: self.size
+                on_release: app.click_cell_9(self.idx if self.state=="down" else -1)
+            ToggleButton:
+                idx: 76
+                text: "" if app.board9[self.idx] == 0 else str(app.board9[self.idx])
+                group: 'g1'
+                font_size: sc.font_size
+                color: app.font_color9[self.idx]
+                canvas.after:
+                    Color:
+                        rgba: app.fg_color9[self.idx]
+                    Rectangle:
+                        pos: self.pos
+                        size: self.size
+                on_release: app.click_cell_9(self.idx if self.state=="down" else -1)
+            ToggleButton:
+                idx: 77
+                text: "" if app.board9[self.idx] == 0 else str(app.board9[self.idx])
+                group: 'g1'
+                font_size: sc.font_size
+                color: app.font_color9[self.idx]
+                canvas.after:
+                    Color:
+                        rgba: app.fg_color9[self.idx]
+                    Rectangle:
+                        pos: self.pos
+                        size: self.size
+                on_release: app.click_cell_9(self.idx if self.state=="down" else -1)
+            ToggleButton:
+                idx: 78
+                text: "" if app.board9[self.idx] == 0 else str(app.board9[self.idx])
+                group: 'g1'
+                font_size: sc.font_size
+                color: app.font_color9[self.idx]
+                canvas.after:
+                    Color:
+                        rgba: app.fg_color9[self.idx]
+                    Rectangle:
+                        pos: self.pos
+                        size: self.size
+                on_release: app.click_cell_9(self.idx if self.state=="down" else -1)
+            ToggleButton:
+                idx: 79
+                text: "" if app.board9[self.idx] == 0 else str(app.board9[self.idx])
+                group: 'g1'
+                font_size: sc.font_size
+                color: app.font_color9[self.idx]
+                canvas.after:
+                    Color:
+                        rgba: app.fg_color9[self.idx]
+                    Rectangle:
+                        pos: self.pos
+                        size: self.size
+                on_release: app.click_cell_9(self.idx if self.state=="down" else -1)
+            ToggleButton:
+                idx: 80
+                text: "" if app.board9[self.idx] == 0 else str(app.board9[self.idx])
+                group: 'g1'
+                font_size: sc.font_size
+                color: app.font_color9[self.idx]
+                canvas.after:
+                    Color:
+                        rgba: app.fg_color9[self.idx]
+                    Rectangle:
+                        pos: self.pos
+                        size: self.size
+                on_release: app.click_cell_9(self.idx if self.state=="down" else -1)
+
+        Label:
+            text: ''                 # Left
+            size_hint_y: None
+            height:  sc.height * 0.5-(sc.height * 0.5)%9 if sc.height < sc.width else sc.width * 0.9 - (sc.width * 0.9)%9
+
+    BoxLayout:
+        #text: ""                    # Bottom
+        size_hint_y: None
+        height: sc.height * 0.1 if sc.height < sc.width else sc.width * 0.2
+        #spacing: 10
+        padding: 10
+        Label:
+            test: ""
+        GridLayout:
+            size_hint_x: None
+            width: sg.width/2
+            cols: 2
+            #text: "Buttom - Left"
+
+            GridLayout:
+                size_hint_y: None
+                cols: 2
+                height: sg.width / 3
+                spacing: 2
+
+                Button:
+                    text: app.back_rest_9
+                    on_release: app.click_backup_9()
+                Button:
+                    text: "Clear"
+                    on_release: app.click_clear_9()
+                Button:
+                    text: "Answer"
+                    on_release: app.click_answer_9()
+                Button:
+                    text: "Reset"
+                    on_release: app.click_reset_9()
+
+            Label:
+                size_hint: None,None
+                width: 10
+                height: sg.width / 3
+
+        GridLayout:
+            #text: "Bottom - Right"
+            size_hint_x: None
+            width: sg.width / 2
+            cols: 1
+
+            GridLayout:
+                id: ig
+                size_hint_y: None
+                cols: 3
+                height: sg.width / 2
+                canvas.after:
+                    Color:
+                        rgba: 1, 1, 1, 0.8
+                    #  outer frame ----------------------------------------------------------------
+                    Line:
+                        points: ig.pos[0], ig.pos[1],                     ig.pos[0], ig.pos[1]+ig.height
+                    Line:
+                        points: ig.pos[0]+ig.width, ig.pos[1]+ig.height,  ig.pos[0], ig.pos[1]+ig.height
+                    Line:
+                        points: ig.pos[0]+ig.width, ig.pos[1]+ig.height,  ig.pos[0]+ig.width, ig.pos[1]
+                    Line:
+                        points: ig.pos[0], ig.pos[1],                     ig.pos[0]+ig.width, ig.pos[1]
+                    #  Horizontal line  ----------------------------------------------------------------
+                    Line:
+                        points: ig.pos[0], ig.pos[1]+ig.height/3,         ig.pos[0]+ig.width, ig.pos[1]+ig.height/3
+                    Line:
+                        points: ig.pos[0], ig.pos[1]+ig.height/3*2,       ig.pos[0]+ig.width, ig.pos[1]+ig.height/3*2
+                    #  Vertical line  ----------------------------------------------------------------
+                    Line:
+                        points: ig.pos[0]+ig.width/3, ig.pos[1],          ig.pos[0]+ig.width/3, ig.pos[1]+ig.height
+                    Line:
+                        points: ig.pos[0]+ig.width/3*2, ig.pos[1],        ig.pos[0]+ig.width/3*2, ig.pos[1]+ig.height
+
+                Button:
+                    id: tb1
+                    text: '1'
+                    font_size: sc.font_size
+                    color: 0.9, 0.9, 0.9, 1
+                    disabled: app.num_state9[int(self.text)]
+                    on_release: app.click_num_9(int(self.text))
+                Button:
+                    text: '2'
+                    font_size: sc.font_size
+                    color: 0.9, 0.9, 0.9, 1
+                    disabled: app.num_state9[int(self.text)]
+                    on_release: app.click_num_9(int(self.text))
+                Button:
+                    text: '3'
+                    font_size: sc.font_size
+                    color: 0.9, 0.9, 0.9, 1
+                    disabled: app.num_state9[int(self.text)]
+                    on_release: app.click_num_9(int(self.text))
+                Button:
+                    text: '4'
+                    font_size: sc.font_size
+                    color: 0.9, 0.9, 0.9, 1
+                    disabled: app.num_state9[int(self.text)]
+                    on_release: app.click_num_9(int(self.text))
+                Button:
+                    text: '5'
+                    font_size: sc.font_size
+                    color: 0.9, 0.9, 0.9, 1
+                    disabled: app.num_state9[int(self.text)]
+                    on_release: app.click_num_9(int(self.text))
+                Button:
+                    text: '6'
+                    font_size: sc.font_size
+                    color: 0.9, 0.9, 0.9, 1
+                    disabled: app.num_state9[int(self.text)]
+                    on_release: app.click_num_9(int(self.text))
+                Button:
+                    text: '7'
+                    font_size: sc.font_size
+                    color: 0.9, 0.9, 0.9, 1
+                    disabled: app.num_state9[int(self.text)]
+                    on_release: app.click_num_9(int(self.text))
+                Button:
+                    text: '8'
+                    font_size: sc.font_size
+                    color: 0.9, 0.9, 0.9, 1
+                    disabled: app.num_state9[int(self.text)]
+                    on_release: app.click_num_9(int(self.text))
+                Button:
+                    text: '9'
+                    font_size: sc.font_size
+                    color: 0.9, 0.9, 0.9, 1
+                    disabled: app.num_state9[int(self.text)]
+                    on_release: app.click_num_9(int(self.text))
+
+        Label:
+            text: ""

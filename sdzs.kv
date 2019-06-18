@@ -1,0 +1,73 @@
+
+<ActionSpinnerOptions@SpinnerOption>
+    background_color: .4, .4, .4, 1
+
+<ActionSpinner@Spinner+ActionItem>
+    canvas.before:
+        Color:
+            rgba: 0.128, 0.128, 0.128, 1
+        Rectangle:
+            size: self.size
+            pos: self.pos
+    border: 27, 20, 12, 12
+    background_normal: 'atlas://data/images/defaulttheme/action_group'
+
+<SdScreen>:
+    ScrollView:
+        do_scroll_x: False
+        do_scroll_y: False
+        AnchorLayout:
+            size_hint_y: None
+            height: root.height if root.fullscreen else max(root.height, content.height)
+            GridLayout:
+                id: content
+                cols: 1
+                spacing: '8dp'
+                padding: '8dp'
+                size_hint: (1, 1) if root.fullscreen else (.8, None)
+                height: self.height  if root.fullscreen else self.minimum_height
+
+
+BoxLayout:
+    orientation: 'vertical'
+    canvas.before:
+        Color:
+            rgb: .6, .6, .6
+        Rectangle:
+            size: self.size
+            source: 'data/icon/bg.png'
+
+    ActionBar:
+        ActionView:
+            id: av
+            ActionPrevious:
+                with_previous: (False if sm.current_screen.name == 'button' else True) if sm.current_screen else False
+                title: 'Sudoku' + ('' if not app.current_title else ' - {}'.format(app.current_title))
+                on_release: if sm.current != 'Home': app.go_previous_screen()
+
+            ActionSpinner:
+                id: spnr
+                important: True
+                text: 'Jump to Screen'
+                values: app.screen_names
+                on_text:
+                    if sm.current != args[1]:\
+                    idx = app.screen_names.index(args[1]);\
+                    app.go_screen(idx)
+            ActionButton:
+                text: 'Previous screen'
+                icon: 'data/icon/left.png'
+                on_release: app.go_previous_screen()
+
+            ActionButton:
+                text: 'Next screen'
+                icon: 'data/icon/right.png'
+                on_release: app.go_next_screen()
+                important: True
+
+    ScreenManager:
+        id: sm
+        on_current_screen:
+            spnr.text = args[1].name
+            idx = app.screen_names.index(args[1].name)
+
