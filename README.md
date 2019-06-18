@@ -1,4 +1,5 @@
-Sudoku-Assistant
+#Sudoku-Assistant
+
 A tools for Sudoku practice and answering tool just for kids learning Sudoku and practice pyhton by myself
 
 Target platform: Android, Window, Linux
